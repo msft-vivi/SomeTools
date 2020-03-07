@@ -1,0 +1,93 @@
+.flex {
+    display: flex;
+}
+
+/*--------------------------------------------------------------
+# auth
+--------------------------------------------------------------*/
+
+.auth-container .container  {
+    max-width: 330px;
+    margin-top: 5em;
+}
+
+
+.auth-body {
+     background-color: #f5f5f5;
+}
+
+.auth-container .container .form-signin {
+      width: 100%;
+      max-width: 330px;
+      padding: 15px;
+      margin: auto;
+}
+
+.auth-container .container .form-signin .checkbox{
+    font-weight: 400;
+}
+
+
+/*--------------------------------------------------------------
+# blog create
+--------------------------------------------------------------*/
+
+.blog-create-container .container{
+    max-width: 500px;
+    margin-top: 5em;
+}
+
+
+
+/*--------------------------------------------------------------
+# blog post
+--------------------------------------------------------------*/
+.blog-home-container .container{
+    max-width: 700px;
+    margin-top: 3em;
+}
+
+.post > header {
+      display: flex;
+      align-items: flex-end;
+      font-size: 0.85em;
+}
+
+.post > header > div:first-of-type {
+  flex: 1 0 auto;
+}
+.post > header h1 {
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+.post .about {
+  color: slategray;
+  font-style: italic;
+}
+.post .body {
+    white-space: pre-line; /*合并空白符序列，但是保留换行符。*/
+    font-family: "Times New Roman";
+}
+.post a {
+    text-decoration: none;
+    color: purple;
+}
+
+/*--------------------------------------------------------------
+# blog update
+--------------------------------------------------------------*/
+.blog-update-container .container{
+    max-width: 700px;
+    margin-top: 3em;
+}
+
+
+
+.flash {
+  margin: 1em 0;
+  padding: 1em;
+  background: #cae6f6;
+  border: 1px solid #377ba8;
+}
+

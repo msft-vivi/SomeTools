@@ -1,0 +1,60 @@
+{% extends 'auth/base_auth.html' %}
+
+{% block title %}Jinja Demo{% endblock %}
+
+{% block content %}
+
+    <div>
+        <button><a href="{{ url_for('blog.post') }}">作者发表</a></button>
+        <button><a href="{{ url_for('blog.author') }}">作者信息</a></button>
+        <button><a href="{{ url_for('blog.home') }}">作者主页</a></button>
+        <button><a href="{{ url_for('auth.login') }}">登录页面</a></button>
+        <button><a href="{{ url_for('auth.register') }}">注册页面</a></button>
+        <button><a href="{{ url_for('auth.jinja') }}">jinja用法</a></button>
+    </div>
+
+
+    <div>
+        {% macro good(name) %}
+            <p>干得漂亮 : {{ name }}</p>
+        {% endmacro %}
+
+        <h1>1. macro fuc 的用法</h1>
+        <h2>method one</h2>
+        {% from 'function/test_fun.html' import hehe %}
+        {{ hehe("Tom") }}
+        {{ hehe("Rock") }}
+
+        <h2>method two</h2>
+        {{ good("Alice") }}
+        {{ good("Lihua") }}
+    </div>
+    <div>
+        <h1>2. for loop 循环用法</h1>
+        <ul>
+            <li>loop.first</li>
+            <li>loop.index、loop.index0、loop.revindex、loop.revindex0</li>
+            <li>loop.last</li>
+            <li>loop.length</li>
+            <li>loop.nextitem、loop.previtem</li>
+        </ul>
+        <h2>example : </h2>
+        {% for user in users %}
+            {% if loop.first %}
+                <li style="color: purple">{{ loop.index }}:{{ loop.index0 }}:{{ loop.revindex }}:{{ loop.revindex0 }}{{ user }}</li>
+            {% elif loop.last %}
+                <li style="color: brown">{{ loop.index }}:{{ loop.index0 }}:{{ loop.revindex }}:{{ user }}:{{ loop.revindex0 }}</li>
+            {% else %}
+                <li style="color: darkorange">{{ loop.index }}:{{ loop.index0 }}:{{ loop.revindex }}:{{ user }};{{ loop.revindex0 }}</li>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div>
+        <h1>filter 用法</h1>
+        <h4>{{ msg | capitalize }}</h4>
+        <h4>{{ msg | lower }}</h4>
+        <h4>{{ msg | upper }}</h4>
+        <h4>{{ msg | reverse }}</h4>
+    </div>
+{% endblock %}

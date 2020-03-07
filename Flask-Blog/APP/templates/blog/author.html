@@ -1,0 +1,18 @@
+{% extends 'blog/base_blog.html' %}
+{% block title %}
+    Author
+{% endblock %}
+
+{% block content%}
+    <h2>这是从cookies获得的用户信息</h2>
+    <ul>
+        <li>{{ username }}</li>
+        <li>{{ password }}</li>
+    </ul>
+    <button><a href="{{ url_for('blog.create') }}">作者发表</a></button>
+    <button><a href="{{ url_for('blog.author') }}">作者信息</a></button>
+    <button><a href="{{ url_for('blog.home') }}">作者主页</a></button>
+    <button><a href="{{ url_for('auth.login') }}">登录页面</a></button>
+    <button><a href="{{ url_for('auth.register') }}">注册页面</a></button>
+    <button><a href="{{ url_for('auth.jinja') }}">jinja用法</a></button>
+{% endblock %}

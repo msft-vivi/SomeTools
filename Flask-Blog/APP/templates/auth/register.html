@@ -1,0 +1,43 @@
+{% extends 'auth/base_auth.html' %}
+{% block title %}注册{% endblock %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+    <div class="auth-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form action="{{ url_for('auth.register') }}" method="post">
+                        <div class="flex justify-content-center align-items-center">
+                            <img class="mb-4" src="{{ url_for('static',filename='images/icons/bootstrap.svg') }}" alt="" width="72" height="72">
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="sr-only">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" aria-describedby="usernameHelp" autofocus required>
+                            <small id="usernameHelp" class="form-text text-muted">Do not use illegal characters</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password1" class="sr-only">Password</label>
+                            <input type="password" class="form-control" id="password1" name="password1"
+                                   aria-describedby="passwordHelp" placeholder="Password" required>
+                            <small id="passwordHelp" class="form-text text-muted">Password must be at least 10 digits</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password2" class="sr-only">Confirm password</label>
+                            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm password" required>
+                        </div>
+                        <div class="form-group flex justify-content-center">
+                            <div class="flex align-items-baseline">
+                                <input type="checkbox" class="form-check-input" id="register_accept" required>
+                                <label class="form-check-label" for="register_accept">Agree</label>
+                            </div>
+                        </div>
+
+                            <button type="submit" class="btn btn-info btn-block">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

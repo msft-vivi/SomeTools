@@ -1,0 +1,55 @@
+{% extends'blog/base_blog.html' %}
+{% block title %}
+    博客信息
+{% endblock %}
+
+
+{% block content %}
+    <div class="blog-home-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    {% for post in pagination.items %}
+                        <article class="post">
+                            <header>
+                                <div>
+                                    <h1>{{ post['title'] }}</h1>
+                                    <div class="about">by {{ post['username'] }}
+                                        on {{ post['created'].strftime('%Y-%m-%d') }}</div>
+                                </div>
+                                {% if g.user['id'] == post['author_id'] %}
+                                    <button class="btn btn-sm btn-outline-info"><a
+                                            href="{{ url_for('blog.update', id=post['id']) }}">Edit</a></button>
+                                {% endif %}
+                            </header>
+                            <p class="body">{{ post['body'] }}</p>
+                            <footer>
+
+                            </footer>
+                        </article>
+                        {% if not loop.last %}
+                            <hr>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 flex justify-content-center mt-3">
+                    <ul class=pagination>
+                        {%- for page in pagination.iter_pages(left_edge=5,left_current=5,right_current=5,right_edge=5) %}
+                            {% if page %}
+                                {% if page != pagination.page %}
+                                    <li class="page-item"><a class="page-link text-info" href="{{ url_for('blog.home') }}?page={{ page }}&per_page={{ per_page }}">{{ page }}</a></li>
+                                {% else %}
+                                    <li class="page-item active"><a class="page-link bg-info text-white" href="{{ url_for('blog.home') }}?page={{ page }}&per_page={{ per_page }}">{{ page }}</a></li>
+                                {% endif %}
+                            {% else %}
+                                <span class=text-info>…</span>
+                            {% endif %}
+                        {%- endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

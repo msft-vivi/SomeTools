@@ -1,0 +1,44 @@
+{% extends 'auth/base_auth.html' %}
+
+{% block title %}登录{% endblock %}
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="auth-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form action="{{ url_for('auth.login') }}" method="post">
+                        <div class="flex justify-content-center align-items-center">
+                            <img class="mb-4" src="{{ url_for('static',filename='images/icons/bootstrap.svg') }}" alt=""
+                                 width="72" height="72">
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="sr-only">Username</label>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Username"
+                                   required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword" class="sr-only">Password</label>
+                            <input type="password" name="password" id="inputPassword" class="form-control"
+                                   placeholder="Password" required>
+                        </div>
+                        <div class="form-group flex justify-content-center">
+                            <div class="flex align-items-baseline">
+                                <input type="checkbox" class="form-check-input" id="remember_me">
+                                <label class="form-check-label" for="exampleCheck1">Remember-me</label>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-lg btn-info btn-block" type="submit" id="btn">Login</button>
+                        <div class="flex justify-content-center">
+                            <p class="mt-5 mb-3 text-muted">&copy; OvO</p>
+                        </div>
+                    </form> <!--end of form-->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

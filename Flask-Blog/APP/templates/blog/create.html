@@ -1,0 +1,29 @@
+{% extends'blog/base_blog.html' %}
+{% block title %}
+    创建博客
+{% endblock %}
+
+{# 默认提交表单到当前页面 #}
+{% block content %}
+    <div class="blog-create-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input class="form-control" name="title" id="title" value="{{ request.form['title'] }}"
+                                   required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="body">Content</label>
+                            <textarea class="form-control" name="body" id="body">{{ request.form['body'] }}</textarea>
+                        </div>
+                        <input type="submit" class="btn btn-info" value="Save">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
